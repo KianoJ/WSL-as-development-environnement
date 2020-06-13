@@ -1,5 +1,9 @@
 # WSL as development environnement
 
+## Before starting 
+
+I'm not a pro in WSL or Linux or programmation. I'm just passionate about new technologies and I like to program in my spare time. And English is not my native language so if there are spelling mistakes, excuse me.
+
 ## Introduction
 
 I was looking for a solution to be able not to install all frameworks or dependency on my computer to have something cleaner. I've tried different solution that allows me to work easily without the need to install different software in Windows (less messy) while consuming fewer resources:
