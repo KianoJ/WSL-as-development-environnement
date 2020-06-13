@@ -6,6 +6,14 @@ sudo apt install nginx -y
 
 ## Allow PHP files
 
+Install `php-fpm`. Don't forget to add PHP PPA
+
+```
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt install php-fpm
+```
+
 Open `default` file from `/etc/nginx/sites-available/` and add `index.php` in the list 
 
 ```
@@ -31,7 +39,7 @@ location ~ \.php$ {
 		# With php-fpm (or other unix sockets):
 		fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
 		# With php-cgi (or other tcp sockets):
-		fastcgi_pass 127.0.0.1:9000;
+		# fastcgi_pass 127.0.0.1:9000;
 }
 ```
 
