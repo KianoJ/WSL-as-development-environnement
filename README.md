@@ -113,29 +113,6 @@ If you use `Visual Studio Code`, it will recommend you to install the `Remote - 
 
 Congratulation ! You can use and install all your Frameworks (NPM, Laravel, PHP, etc) inside Linux __***INSIDE***__ Windows. What a time to be alive !
 
-Here is some configuration command to install some dependencies.
-
-```bash
-# Install NodeJS LTS 12.18.0
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# Install PHP
-sudo apt install php -y
-# If you need some php extensions, make the same command but replace php by php-YOUR_EXTENSION
-# Exemple 
-# sudo apt install php-dom -y
-
-# Install Composer
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
-# Install nginx as web server
-sudo apt install nginx -y
-
-# Install MySQL
-sudo apt install mysql-server -y
-```
 
 ## More options
 
