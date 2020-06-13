@@ -137,6 +137,21 @@ sudo apt install nginx -y
 sudo apt install mysql-server -y
 ```
 
+## More options
+
+WSL instance stay active when you leave the Terminal. You can kill it with 
+
+```bash
+# List all running WSL
+wsl.exe --list --running
+# Terminate a WSL install
+wsl -t NAME_OF_DISTRIBUTION
+```
+
+You can manage some other stuff like memory usage, processor : https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig
+
+---
+
 ## WARNING
 
 Sometimes you need to use `sudo` to use a dependency in your local drive (not `~/`) for exemple create-react-app sometime need `sudo` to create a project.
