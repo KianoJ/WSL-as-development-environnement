@@ -34,3 +34,7 @@ location ~ \.php$ {
 		fastcgi_pass 127.0.0.1:9000;
 }
 ```
+
+## Web site location
+
+`/var/www/html`
