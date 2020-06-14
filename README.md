@@ -120,13 +120,13 @@ Congratulation ! You can use and install all your Frameworks (NPM, Laravel, PHP,
 
 ## More options
 
-WSL instance stay active when you leave the Terminal. You can kill it with 
+WSL instance stay active when you leave the Terminal. You can kill it in Powershell with : 
 
 ```bash
 # List all running WSL
-wsl.exe --list --running
+wsl --list --running
 # Terminate a WSL install
-wsl -t NAME_OF_DISTRIBUTION
+wsl -t NAME_OF_THE_DISTRIBUTION
 ```
 
 You can manage some other stuff like memory usage, processor : https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig
