@@ -127,6 +127,9 @@ WSL instance stay active when you leave the Terminal. You can kill it in Powersh
 wsl --list --running
 # Terminate a WSL install
 wsl -t NAME_OF_THE_DISTRIBUTION
+
+# Or yoiu can kill WSL instance and VMMEN process
+wsl --shutdown
 ```
 
 You can manage some other stuff like memory usage, processor : https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig
