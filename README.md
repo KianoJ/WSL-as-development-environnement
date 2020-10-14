@@ -109,7 +109,7 @@ By default it will be inside your Windows profile folder. All your drive is int 
 
 `Visual Studio Code` will recommend you to install the `Remote - WSL` extension. Activate it, it allow you to start WSL with VSCode.
 
-### **6 - Install Docker Desktop***
+### **6 - Install Docker Desktop**
 
 Some tools or service is not *yet* available in WLS so we gonna use Docker inside Linux.
 
