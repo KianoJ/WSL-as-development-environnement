@@ -13,7 +13,7 @@ I was looking for a solution to be able not to install all frameworks or depende
 
 ## What is WSL ?
 
-WSL stand for `Windows Subsystem for Linux`. It allows to use the Linux kernel and terminal inside Windows. 
+WSL stand for `Windows Subsystem for Linux`. It allows to use the Linux terminal inside Windows. 
 
 ### What's the point of using that ?
 
@@ -28,9 +28,7 @@ As I said earlier, I tried different solutions but :
 
 #### Requirements
 
-- Windows 10 2004
-- At least Windows Pro edition
-- Admin permission
+- Windows 10 Pro version 1903 or higher with Build 18362 or higher
 - CPU compatible with Virtualization (VT for Intel and AMD-V for AMD)
 - WSL2 kernel : https://aka.ms/wsl2kernel
 
@@ -66,7 +64,7 @@ Once installed you can close Powershell to switch for your new terminal.
 Open Terminal as Admin and enter this :
 
 ```ps
-# Activate WSL1
+# Activate WSL
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
 # Activate Virtual Machine Platform
@@ -87,7 +85,7 @@ We almost finish, now you need to install the WSL2 Kernel (Link above) and all d
 I'm using Ubuntu as WSL distribution for multiples reasons :
 - first to work with WSL;
 - officially supporter by Windows;
-- used to this distro;
+- used to this distribution;
 
 You have different method to install Ubuntu. I'll use `winget`. Open Terminal without admin permission and enter :
 
@@ -107,15 +105,31 @@ I highly recommend you to update and upgrade packages :
 sudo apt update && sudo apt upgrade -y
 ```
 
-By default it will be inside your Windows profile folder. All your drive is int `/mnt` folder.
+By default it will be inside your Windows profile folder. All your drive is int `/mnt` folder. You can change it in Terminal settings by adding `"startingDirectory": "//wsl$/Ubuntu-20.04/home/USERNAME",` in Ubuntu profile.
 
-If you use `Visual Studio Code`, it will recommend you to install the `Remote - WSL` extension. It can be useful, read the description.
+`Visual Studio Code` will recommend you to install the `Remote - WSL` extension. Activate it, it allow you to start WSL with VSCode.
+
+### **6 - Install Docker Desktop***
+
+Some tools or service is not *yet* available in WLS so we gonna use Docker inside Linux.
+
+Download and install [Docker Desktop](https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe). Let `Install required Windows components for WSL 2` check.
+
+### **7 - Configure Docker**
+
+Once log in, open Docker and skip tutorial.
+Open docker's settings. Verify that `Use the WSL 2 based engine` is enabled.
+Go to `Resources` -> `WSL integration` and enable Ubuntu then apply.
+
+Now we can use docker inside Ubuntu.
 
 ---
 
 ## Finish
 
-Congratulation ! You can use and install all your Frameworks (NPM, Laravel, PHP, etc) inside Linux __***INSIDE***__ Windows. What a time to be alive !
+Congratulation ! You can use and install all your Frameworks inside Linux __***INSIDE***__ Windows.
+
+I'll update how to install some tools or framework.
 
 
 ## More options
@@ -128,14 +142,32 @@ wsl --list --running
 # Terminate a WSL install
 wsl -t NAME_OF_THE_DISTRIBUTION
 
-# Or yoiu can kill WSL instance and VMMEN process
+# Or you can kill WSL instance and VMMEN process
 wsl --shutdown
 ```
 
-You can manage some other stuff like memory usage, processor : https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig
+You can limit the amount of resource WSL use. Create a file called `.wslconfig` inside your user folder and add : 
+
+```
+[wsl2]
+memory=3GB
+processors=2
+```
+
+Close all instance and shut WSL
+
+__OR__
+
+Open Powershell __not as admin__ and run :
+
+```powershell
+New-Item -ItemType File -Path $env:USERPROFILE -Name .wslconfig
+"[wsl2]" | Out-File -FilePath $env:USERPROFILE\.wslconfig
+"memory=3GB" | Out-File -FilePath $env:USERPROFILE\.wslconfig -Append
+"processors=2" | Out-File -FilePath $env:USERPROFILE\.wslconfig -Append
+wsl --shutdown 
+```
+
+Change the amount of memory you allow and CPU core to fit your computer available resources.
 
 ---
-
-## WARNING
-
-Sometimes you need to use `sudo` to use a dependency in your local drive (not `~/`) for exemple create-react-app sometime need `sudo` to create a project.
