@@ -18,7 +18,9 @@ Click on `SQL Server` icon and `Add Connection`
 
 Enter the ip and port like this : `localhost,1433`
 
-Use the SQL Login as authentification type. Default user is `SA`
+Use the SQL Login as authentification type. Default user is `SA`.
+
+*Please go to the officiel documentation to see all features and command with this extension.*
 
 ---
 
