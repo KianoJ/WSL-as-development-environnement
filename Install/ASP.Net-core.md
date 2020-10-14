@@ -14,6 +14,7 @@ How to use it : https://code.visualstudio.com/docs/languages/dotnet
 
 ## Tools
 
+C# extension for VSCode: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 NuGet Gallery in VSCode : https://marketplace.visualstudio.com/items?itemName=patcx.vscode-nuget-gallery
 
 ---
