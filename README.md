@@ -170,4 +170,5 @@ wsl --shutdown
 
 Change the amount of memory you allow and CPU core to fit your computer available resources.
 Then run in Powershell as admin `Restart-Service LxssManager`
+
 ---
